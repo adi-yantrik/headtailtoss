@@ -1,0 +1,67 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-color:white;
+        text-align: center;
+    }
+    p{
+        font-size: 50px;
+    }
+    img{
+        width: 200px;
+        height: 200px;
+    }
+   #toss{
+width: 100px;
+height: 50px;
+background-color: yellow;
+font-size: 20px;
+}
+
+#home{
+width: 100px;
+height: 50px;
+background-color: greenyellow;
+font-size: 20px;
+}
+</style>
+<body>
+    <img id="pop" src="./img/toss.png">
+<p id="demo"></p>
+<button onclick="myfunc()"  ondblclick="suSab()" id="toss">TOSS</button>
+<button onclick="newFunc()" id="home">HOME</button>
+
+<script>
+    const hitSound = new Audio('./sounds/swish.m4a');
+    var i=randToRpsInt();
+function randToRpsInt(){
+    return Math.floor(Math.random() * 2);
+}
+function myfunc(){
+    
+if (i===0){
+    document.getElementById("demo").innerHTML="Head"
+    document.getElementById("pop").src="./img/tail.jpg";
+    document.getElementById("toss").remove();
+    hitSound.play();
+}else{
+    document.getElementById("demo").innerHTML="Tail" 
+    document.getElementById("pop").src="./img/head.jpg";
+    document.getElementById("toss").remove();
+    hitSound.play();
+}
+}
+function newFunc(){
+    location.reload();
+}
+function suSab(){
+    alert("PLEASE PRESS ON HOME BUTTON TO BE ABLE TO TOSS AGAIN")
+}
+</script>    
+</body>
+</html>
